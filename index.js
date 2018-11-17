@@ -1,11 +1,22 @@
-console.log("hello");
-console.log(__dirname);
-console.log(__filename);
-var x = 0;
-if(x===0) {
-    console.log("work");
+/*
+    Уроки Node JS / #3 - Функции, модули и директива require()
+    Именованные функции
+    модули
+    require
+*/
+
+var counter = require('./array');
+
+var test = function() {
+    console.log("hello");
 }
 
-setInterval(function(){
-    console.log("hello")
-}, 2000);
+function call(func) {
+    func();
+}
+
+call(test);
+
+console.log(counter([1,5,7,22,245]));
+
+
