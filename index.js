@@ -1,14 +1,19 @@
 /*
-    Уроки Node JS / #8 - Работа и создание сервера на Node
+    Уроки Node JS / #9 - Работа с потоками в Node JS
+    https://www.youtube.com/watch?v=Sqk-zR9KS2Q&index=9&list=PL0lO_mIqDDFX0qH9w5YQIDV6Wxy0oawet
+    Потоки
+    Как загружается видео? Частями а не полностью. В ноде мы можем делать так же, а не ждать пока все загрузится.
+    Будем читать текст частями.
 */
 
-var http = require('http');
+var fs = require('fs');
 
-var server = http.createServer(function(req, res){
-    console.log("URL: " + req.url)
-    res.writeHeader(200 , {"Content-Type" : "text/plain; charset=utf-8"});
-    res.end('Hello Tits! попка как ягодка');
+
+// var article = fs.readFileSync('article.txt', 'utf8', function(){});
+var myReadShort = fs.createReadStream(__dirname + '/article.txt');
+var myWriteShort = fs.createWriteStream(__dirname + '/news.txt');
+
+myReadShort.on('data', function(item) {
+    console.log('New data ');
+    myWriteShort.write(item);
 });
-
-server.listen(3000, '127.0.0.1');
-console.log('Port 3000 tits!');
