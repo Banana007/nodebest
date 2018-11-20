@@ -1,24 +1,21 @@
 /*
-    Уроки Node JS / #6 - Написание и чтение файлов
+    Уроки Node JS / #7 - Работа с директориями. Удаление файлов,
 */
 
 var fs = require('fs');
 
+// fs.unlink('file.txt', function(){ // удаление файла
+//     console.log('work');
+// });
 
-var file_readed = fs.readFile('text.txt', 'utf8', function(err, data) {
-    console.log(data)
-}); // прочитать содержимое из файла. Когда прочитан файл, тогда запустится нижестощий код, поэтому и называется Sync
+// fs.mkdirSync('app');  // создание папки
+// fs.rmdirSync('app'); // удаление папки
 
-console.log('test');
+// fs.mkdir('app', function() {
+//     fs.writeFile('./app/test.txt', 'The best tits ever! Fuck yeah!', function(){
+//         console.log('okey!');
+//     })
+// });
 
-fs.writeFile('some.txt', 'eee boy!!!', function(err, data){
+// fs.unlink('./app/test.txt', function(){}); // удаление файла
 
-});
-
-console.log('test');
-
-// var file_write = fs.writeFileSync('some_new_file.txt', 'super porno website \n' + file_readed);
-// var file_readed2 = fs.readFileSync('some_new_file.txt', 'utf8'); // прочитать содержимое из файла. Когда прочитан файл, тогда запустится нижестощий код, поэтому и называется Sync
-
-
-// console.log(file_readed2);
