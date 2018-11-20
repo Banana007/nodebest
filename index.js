@@ -1,21 +1,14 @@
 /*
-    Уроки Node JS / #7 - Работа с директориями. Удаление файлов,
+    Уроки Node JS / #8 - Работа и создание сервера на Node
 */
 
-var fs = require('fs');
+var http = require('http');
 
-// fs.unlink('file.txt', function(){ // удаление файла
-//     console.log('work');
-// });
+var server = http.createServer(function(req, res){
+    console.log("URL: " + req.url)
+    res.writeHeader(200 , {"Content-Type" : "text/plain; charset=utf-8"});
+    res.end('Hello Tits! попка как ягодка');
+});
 
-// fs.mkdirSync('app');  // создание папки
-// fs.rmdirSync('app'); // удаление папки
-
-// fs.mkdir('app', function() {
-//     fs.writeFile('./app/test.txt', 'The best tits ever! Fuck yeah!', function(){
-//         console.log('okey!');
-//     })
-// });
-
-// fs.unlink('./app/test.txt', function(){}); // удаление файла
-
+server.listen(3000, '127.0.0.1');
+console.log('Port 3000 tits!');
